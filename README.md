@@ -11,6 +11,13 @@
 
 Basically, there are almost no differences between the two versions.
 
+## Rules about protocol modules
+
+* Each module includes **SEVERAL nodes** that running the same protocol.
+* At least include ```tic()``` and ```reset()``` functions.
+* ```tic()``` should return a 1D ndarray carrying the actions of every nodes.
+* Add additionl functions if it's necesary.
+
 ## References
 
 1. [DLMA (offcial repo)](https://github.com/YidingYu/DLMA.git)
