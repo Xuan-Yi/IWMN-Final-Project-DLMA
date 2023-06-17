@@ -1,22 +1,18 @@
 # Introduction-to-Wireless-and-Mobile-Networking-Final-Project (DLMA experiments)
 
+```=shell
+conda install matplotlib
+```
+
 ## Run code
 
 * Use **Tensorflow**.
 
 * There are 2 options
 
-1. ```sim_env.ipynb```
-2. Use modules in ```/sim_tools```. Please refer to ```sample_main.py``` for basic usage.
-
-Basically, there are almost no differences between the two versions.
-
-## Rules about protocol modules
-
-* Each module includes **SEVERAL nodes** that running the same protocol.
-* At least include ```tic()``` and ```reset()``` functions.
-* ```tic()``` should return a 1D ndarray carrying the actions of every nodes.
-* Add additionl functions if it's necesary.
+  1. ```sim_env.ipynb```
+  2. Use modules in ```./sim_tools```. You can refer to ```sample_main.py``` as an example.
+* Please check ```./sim_tools/configs/basic_config.py``` for additional configuration options.
 
 ## References
 
