@@ -4,8 +4,7 @@ import tensorflow as tf
 
 from keras.models import Model
 from keras.layers import Dense, Input, Add
-from keras.optimizers import RMSprop, Adam
-from keras.initializers import glorot_normal
+from keras.optimizers import Adam
 
 class DQN_NODES:
     def __init__(self,
@@ -264,6 +263,3 @@ class DQN:
                     self.gamma*q_targ[i][self.n_nodes*action_+node]
 
         self.model.fit(state, q, self.batch_size, epochs=1, verbose=None)
-
-if __name__ == '__main__':
-    import tensorflow as tf

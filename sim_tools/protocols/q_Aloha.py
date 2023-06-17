@@ -1,7 +1,7 @@
 import numpy as np
 
 
-class q_Aloha_NODES:
+class q_ALOHA_NODES:
     def __init__(self, n_nodes, q=0.5):
         # n_actions=2: (wait, transmit)
         self.n_nodes = n_nodes

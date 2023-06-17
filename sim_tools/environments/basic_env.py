@@ -1,20 +1,9 @@
 from sim_tools.protocols.DQN import DQN_NODES
 from sim_tools.protocols.TDMA import TDMA_NODES
 from sim_tools.protocols.EB_Aloha import EB_ALOHA_NODES
-from sim_tools.protocols.q_Aloha import q_Aloha_NODES
+from sim_tools.protocols.q_Aloha import q_ALOHA_NODES
 
 import numpy as np
-
-import os
-import tensorflow as tf
-
-from keras.models import Model
-from keras.layers import Dense, Input, Add
-from keras.optimizers import RMSprop, Adam
-from keras.initializers import glorot_normal
-
-import matplotlib.pyplot as plt
-from tqdm import tqdm
 
 
 class BasicEnvironment:
@@ -22,38 +11,43 @@ class BasicEnvironment:
         self.__set_env__(config)
 
     def __set_env__(self, _config):
-        self.n_DQN = _config.n_DQN
+        # Cannot change the number DQN nodes
+        if not hasattr(self, 'n_DQN'):
+            self.n_DQN = _config.n_DQN
         self.n_TDMA = _config.n_TDMA
         self.n_EB_Aloha = _config. n_EB_Aloha
         self.n_q_Aloha = _config.n_q_Aloha
 
         self.n_nodes = self.n_DQN + self.n_TDMA + self.n_EB_Aloha + self.n_q_Aloha
 
-        self.dqn_nodes = DQN_NODES(_config.state_size,
-                                   n_dqn_nodes=self.n_DQN,
-                                   n_nodes=self.n_nodes,
-                                   n_actions=2,
-                                   memory_size=_config.E,
-                                   replace_target_iter=_config.F,
-                                   batch_size=_config.B,
-                                   learning_rate=0.01,
-                                   gamma=0.9,
-                                   epsilon=0.5,
-                                   epsilon_min=0.005,
-                                   epsilon_decay=0.995,
-                                   alpha=_config.alpha
-                                   )
+        if not hasattr(self, 'dqn_nodes'):
+            self.dqn_nodes = DQN_NODES(_config.state_size,
+                                       n_dqn_nodes=self.n_DQN,
+                                       n_nodes=self.n_nodes,
+                                       n_actions=2,
+                                       memory_size=_config.E,
+                                       replace_target_iter=_config.F,
+                                       batch_size=_config.B,
+                                       learning_rate=0.01,
+                                       gamma=0.9,
+                                       epsilon=0.5,
+                                       epsilon_min=0.005,
+                                       epsilon_decay=0.995,
+                                       alpha=_config.alpha
+                                       )
+        else:
+            self.dqn_nodes.n_nodes = self.n_nodes
         self.tdma_nodes = TDMA_NODES(
             _config.n_TDMA, _config.action_list_len, _config.X)
         self.EB_ALOHA_NODES = EB_ALOHA_NODES(
             _config.n_EB_Aloha, _config.W, _config.max_count)
-        self.q_Aloha_nodes = q_Aloha_NODES(_config.n_q_Aloha, _config.q)
+        self.q_Aloha_nodes = q_ALOHA_NODES(_config.n_q_Aloha, _config.q)
 
     def reset(self, _config):
         self.config = _config
         self.__set_env__(self.config)
 
-        self.dqn_nodes.reset()
+        # self.dqn_nodes.reset()
         self.tdma_nodes.reset()
         self.EB_ALOHA_NODES.reset()
         self.q_Aloha_nodes.reset()

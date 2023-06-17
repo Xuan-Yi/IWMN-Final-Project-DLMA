@@ -1,9 +1,9 @@
 class BasicConfig:
     def __init__(self):
-        self.n_DQN
-        self.n_TDMA
-        self.n_EB_Aloha
-        self.n_q_Aloha
+        self.n_DQN = 1
+        self.n_TDMA = 0
+        self.n_EB_Aloha = 0
+        self.n_q_Aloha = 0
 
         self.max_iter = 10000  # simulation iterations
         self.N = 1000  # plot with avg of N iters
