@@ -2,8 +2,8 @@ class BasicConfig:
     def __init__(self):
         self.n_DQN = 1
         self.n_TDMA = 0
-        self.n_EB_Aloha = 0
-        self.n_q_Aloha = 0
+        self.n_EB_ALOHA = 0
+        self.n_q_ALOHA = 0
 
         self.max_iter = 10000  # simulation iterations
         self.N = 1000  # plot with avg of N iters
@@ -21,12 +21,12 @@ class BasicConfig:
         self.action_list_len = 10  # length of one period
         self.X = 2  # number of slot used in one perios
 
-        # Exponential-backoff Aloha
+        # Exponential-backoff ALOHA
         # wnd = randint(0, W*2^count)
         self.W = 2   # minimum window size
         self.max_count = 2  # maximum backoff count
 
-        # q-Aloha
+        # q-ALOHA
         self.q = .2
         
 

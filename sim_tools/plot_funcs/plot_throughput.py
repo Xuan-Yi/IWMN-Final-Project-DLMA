@@ -7,11 +7,11 @@ def PlotThroughput(file, config):
     N = config.N
     n_DQN = config.n_DQN
     n_TDMA = config.n_TDMA
-    n_EB_Aloha = config.n_EB_Aloha
-    n_q_Aloha = config.n_q_Aloha
+    n_EB_ALOHA = config.n_EB_ALOHA
+    n_q_ALOHA = config.n_q_ALOHA
 
-    num = [n_DQN, n_TDMA, n_EB_Aloha, n_q_Aloha]
-    category = ['agent', 'tdma', 'eb_Aloha', 'q_Aloha']
+    num = [n_DQN, n_TDMA, n_EB_ALOHA, n_q_ALOHA]
+    category = ['agent', 'tdma', 'eb_ALOHA', 'q_ALOHA']
 
     # load reward
     data = np.load(file)

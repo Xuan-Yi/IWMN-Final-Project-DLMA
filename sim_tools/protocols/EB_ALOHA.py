@@ -22,10 +22,10 @@ class EB_ALOHA_NODES:
         self.backoff[filter_arr] = np.random.randint(
             0, self.W * 2**self.count)[filter_arr]
 
-        eb_Aloha_actions = (self.backoff == 0)
-        eb_Aloha_actions = eb_Aloha_actions.astype(np.float32)
-        self.actions = eb_Aloha_actions
-        return eb_Aloha_actions  # return 1 if timeout
+        eb_aloha_actions = (self.backoff == 0)
+        eb_aloha_actions = eb_aloha_actions.astype(np.float32)
+        self.actions = eb_aloha_actions
+        return eb_aloha_actions  # return 1 if timeout
 
     def handle_success(self):
         filter_arr = (self.actions == 1)
