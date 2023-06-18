@@ -16,5 +16,5 @@ conda install matplotlib
 
 ## References
 
-1. [DLMA (offcial repo)](https://github.com/YidingYu/DLMA.git)
+1. [DLMA (official simulation codes)](https://github.com/YidingYu/DLMA.git)
 2. [Deep-Reinforcement Learning Multiple Access for Heterogeneous Wireless Networks (IEEE JSAC, VOL. 37, NO. 6, JUNE 2019)](https://ieeexplore.ieee.org/document/8665952)
