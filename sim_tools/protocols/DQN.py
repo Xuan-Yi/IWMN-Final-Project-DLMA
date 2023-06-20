@@ -6,6 +6,7 @@ from keras.models import Model
 from keras.layers import Dense, Input, Add
 from keras.optimizers import Adam
 
+
 class DQN_NODES:
     def __init__(self,
                  state_size,
@@ -20,7 +21,7 @@ class DQN_NODES:
                  epsilon=1,
                  epsilon_min=0.01,
                  epsilon_decay=0.995,
-                 alpha=0  # 0 ~ 100 (inf)
+                 alpha=0,  # 0 ~ 100 (inf)
                  ):
         # hyper-parameters
         self.state_size = state_size
@@ -73,6 +74,17 @@ class DQN_NODES:
             # print(observations_[i], agent_rewards[i], non_agent_rewards[i])
             self.agents[i].update(
                 observations_[i], agent_rewards[i], non_agent_rewards[i])
+
+    def save(self, filename):
+        for i in range(self.n_dqn_nodes):
+            self.agents[i].save(f'{filename}_{i+1}')
+        print('Models saved')
+
+    def load(self, filename):
+        for i in range(self.n_dqn_nodes):
+            self.agents[i].load(f'{filename}_{i+1}')
+        print('Models loaded')
+
 
 class DQN:
     def __init__(self,
@@ -139,6 +151,13 @@ class DQN:
             self.__learn__()    # internally iterates default (prediction) model
 
         self.state = next_state
+
+    def save(self, filepath):
+        self.model.save_weights(filepath)
+
+    def load(self, filepath):
+        self.model.load_weights(filepath)
+        self.target_model.load_weights(filepath)
 
     def __return_action__(self, action):
         one_hot_vector = [0] * self.n_actions

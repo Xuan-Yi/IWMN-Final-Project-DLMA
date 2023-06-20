@@ -9,7 +9,6 @@ import os
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 
-# prefix of record dataname
 EXPERIMENT_NAME = '1 agent + 1 EB-ALOHA'
 
 # configs
@@ -23,7 +22,6 @@ config.max_iter = 10000
 config.N = 1000
 config.alpha = 1  # default 0
 
-
 # environment
 env = BasicEnvironment(config)
 
@@ -31,6 +29,10 @@ agent_reward_list = []
 tdma_reward_list = []
 eb_aloha_reward_list = []
 q_aloha_reward_list = []
+
+# load pre-trained models
+if os.path.isdir(f'./models_{EXPERIMENT_NAME}'):
+    env.load_models(f'./models_{EXPERIMENT_NAME}/DQN')
 
 # simulation
 for i in tqdm(range(config.max_iter)):
@@ -41,7 +43,11 @@ for i in tqdm(range(config.max_iter)):
     eb_aloha_reward_list.append(eb_aloha_rewards)
     q_aloha_reward_list.append(q_aloha_rewards)
 
-# save the result at "./rewards"
+# save models
+if config.save_model:
+    env.save_models(f'./models_{EXPERIMENT_NAME}/DQN')
+    
+# save the results
 agent_arr = np.array(agent_reward_list, dtype=np.float32)
 tdma_arr = np.array(tdma_reward_list, dtype=np.float32)
 eb_ALOHA_arr = np.array(eb_aloha_reward_list, dtype=np.float32)

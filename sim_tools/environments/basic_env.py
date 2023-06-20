@@ -43,6 +43,12 @@ class BasicEnvironment:
             _config.n_EB_ALOHA, _config.W, _config.max_count)
         self.q_ALOHA_nodes = q_ALOHA_NODES(_config.n_q_ALOHA, _config.q)
 
+    def save_models(self, filename):
+        self.dqn_nodes.save(filename)
+
+    def load_models(self, filename):
+        self.dqn_nodes.load(filename)
+
     def reset(self, _config):
         self.config = _config
         self.__set_env__(self.config)

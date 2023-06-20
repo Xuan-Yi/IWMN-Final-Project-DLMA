@@ -7,6 +7,8 @@ class BasicConfig:
 
         self.max_iter = 10000  # simulation iterations
         self.N = 1000  # plot with avg of N iters
+        
+        self.save_model=True
 
         # Agent (DQN)
         self.M = 20  # state length
