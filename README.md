@@ -7,11 +7,7 @@ conda install matplotlib
 ## Run code
 
 * Use **Tensorflow**.
-
-* There are 2 options
-
-  1. ```sim_env.ipynb```
-  2. Use modules in ```./sim_tools```. You can refer to ```sample_main.py``` as an example.
+* Use modules in ```./sim_tools```. You can refer to ```sample_main.py``` as an example.
 * Please check ```./sim_tools/configs/basic_config.py``` for additional configuration options.
 
 ## References
