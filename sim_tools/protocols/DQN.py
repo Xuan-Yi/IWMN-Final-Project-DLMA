@@ -78,12 +78,14 @@ class DQN_NODES:
     def save(self, filename):
         for i in range(self.n_dqn_nodes):
             self.agents[i].save(f'{filename}_{i+1}')
-        print('Models saved')
+        if self.n_dqn_nodes > 0:
+            print('Models saved')
 
     def load(self, filename):
         for i in range(self.n_dqn_nodes):
             self.agents[i].load(f'{filename}_{i+1}')
-        print('Models loaded')
+        if self.n_dqn_nodes > 0:
+            print('Models loaded')
 
 
 class DQN:

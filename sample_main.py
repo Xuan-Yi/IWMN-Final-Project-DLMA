@@ -13,14 +13,16 @@ EXPERIMENT_NAME = '1 agent + 1 EB-ALOHA'
 
 # configs
 config = BasicConfig()
-config.n_DQN = 1
+config.n_DQN = 0
 config.n_TDMA = 0
-config.n_EB_ALOHA = 1
-config.n_q_ALOHA = 0
+config.n_EB_ALOHA = 0
+config.n_q_ALOHA = 3
 
 config.max_iter = 10000
 config.N = 1000
 config.alpha = 1  # default 0
+
+config.q = .2
 
 # environment
 env = BasicEnvironment(config)
@@ -46,7 +48,7 @@ for i in tqdm(range(config.max_iter)):
 # save models
 if config.save_model:
     env.save_models(f'./models_{EXPERIMENT_NAME}/DQN')
-    
+
 # save the results
 agent_arr = np.array(agent_reward_list, dtype=np.float32)
 tdma_arr = np.array(tdma_reward_list, dtype=np.float32)
