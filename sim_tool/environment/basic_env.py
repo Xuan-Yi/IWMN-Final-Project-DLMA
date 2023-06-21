@@ -1,7 +1,7 @@
-from sim_tools.protocols.DQN import DQN_NODES
-from sim_tools.protocols.TDMA import TDMA_NODES
-from sim_tools.protocols.EB_ALOHA import EB_ALOHA_NODES
-from sim_tools.protocols.q_ALOHA import q_ALOHA_NODES
+from sim_tool.protocol.DQN import DQN_NODES
+from sim_tool.protocol.TDMA import TDMA_NODES
+from sim_tool.protocol.EB_ALOHA import EB_ALOHA_NODES
+from sim_tool.protocol.q_ALOHA import q_ALOHA_NODES
 
 import numpy as np
 

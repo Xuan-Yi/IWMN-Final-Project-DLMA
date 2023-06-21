@@ -22,6 +22,7 @@ class DQN_NODES:
                  epsilon_min=0.01,
                  epsilon_decay=0.995,
                  alpha=0,  # 0 ~ 100 (inf)
+                 queue=None
                  ):
         # hyper-parameters
         self.state_size = state_size
@@ -37,6 +38,9 @@ class DQN_NODES:
         self.epsilon_min = epsilon_min
         self.epsilon_decay = epsilon_decay
         self.alpha = alpha
+
+        self.use_queue = queue is not None  # whether queue should be considered
+        self.queue = queue
 
         self.reset()
 
@@ -67,7 +71,15 @@ class DQN_NODES:
 
         for i in range(self.n_dqn_nodes):
             agent_actions[i] = self.agents[i].tic()
-        return agent_actions
+
+        throuput = agent_actions
+        if self.use_queue:
+            self.queue.enque()
+            throuput = self.queue.deque(pick=agent_actions.astype(bool))
+            for i in range(self.n_dqn_nodes):
+                if agent_actions[i] > 0:
+                    self.agents[i].agent_action = 1
+        return throuput
 
     def update(self, observations_, agent_rewards, non_agent_rewards):
         for i in range(self.n_dqn_nodes):

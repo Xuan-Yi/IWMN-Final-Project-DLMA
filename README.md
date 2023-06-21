@@ -1,4 +1,6 @@
-# Introduction-to-Wireless-and-Mobile-Networking-Final-Project (DLMA experiments)
+# Introduction to Wireless and Mobile Networking Final Project (DLMA experiments)
+
+> Use **Tensorflow**.
 
 ```=shell
 conda install matplotlib
@@ -6,9 +8,15 @@ conda install matplotlib
 
 ## Run code
 
-* Use **Tensorflow**.
-* Use modules in ```./sim_tools```. You can refer to ```sample_main.py``` as an example.
-* Please check ```./sim_tools/configs/basic_config.py``` for additional configuration options.
+### Basic version (do not consider queueing)
+
+* Use modules in ```./sim_tool```. You can refer to ```basic_main.py``` as an example.
+* Please check ```./sim_tool/config/basic_config.py``` for additional configuration options.
+
+### General version (consider queueing)
+
+* Use modules in ```./sim_tool```. You can refer to ```general_main.py``` as an example.
+* Please check ```./sim_tool/config/general_config.py``` for additional configuration options.
 
 ## References
 

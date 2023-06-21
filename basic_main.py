@@ -1,6 +1,6 @@
-from sim_tools.configs.basic_config import BasicConfig
-from sim_tools.environments.basic_env import BasicEnvironment
-from sim_tools.plot_funcs.plot_throughput import PlotThroughput
+from sim_tool.config.basic_config import BasicConfig
+from sim_tool.environment.basic_env import BasicEnvironment
+from sim_tool.plot_func.plot_throughput import PlotThroughput
 
 import numpy as np
 
@@ -13,16 +13,14 @@ EXPERIMENT_NAME = '1 agent + 1 EB-ALOHA'
 
 # configs
 config = BasicConfig()
-config.n_DQN = 0
+config.n_DQN = 1
 config.n_TDMA = 0
-config.n_EB_ALOHA = 0
-config.n_q_ALOHA = 3
+config.n_EB_ALOHA = 1
+config.n_q_ALOHA = 0
 
 config.max_iter = 10000
 config.N = 1000
 config.alpha = 1  # default 0
-
-config.q = .2
 
 # environment
 env = BasicEnvironment(config)
