@@ -18,10 +18,10 @@ config.n_TDMA = 0
 config.n_EB_ALOHA = 1
 config.n_q_ALOHA = 0
 
-config.DQN_mode = 'CBR'
-config.TDMA_mode = 'CBR'
-config.EB_ALOHA_mode = 'CBR'
-config.q_ALOHA_mode = 'CBR'
+config.DQN_mode = 'PPA'  # 'PPA' or 'CBR'
+config.TDMA_mode = 'PPA'  # 'PPA' or 'CBR'
+config.EB_ALOHA_mode = 'PPA'  # 'PPA' or 'CBR'
+config.q_ALOHA_mode = 'PPA'   # 'PPA' or 'CBR'
 
 config.max_iter = 10000
 config.N = 1000
