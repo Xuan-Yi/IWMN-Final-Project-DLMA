@@ -1,6 +1,6 @@
 # Introduction to Wireless and Mobile Networking Final Project (DLMA experiments)
 
-> Use **Tensorflow**.
+> Use **Tensorflow 2**.
 
 ```=shell
 conda install matplotlib
