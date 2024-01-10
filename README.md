@@ -1,4 +1,4 @@
-# Introduction to Wireless and Mobile Networking Final Project (DLMA experiments)
+# 2023 Spring NTUEE Introduction to Wireless and Mobile Networking Final Project: DLMA experiments
 
 > Use **Tensorflow 2**.
 
